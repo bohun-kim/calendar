@@ -1,0 +1,102 @@
+body {
+  background-color: #3962a9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.wrapper {
+  background: white;
+  width: 450px;
+  border-radius: 10px;
+}
+
+.wrapper header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 30px 10px;
+}
+
+/* 해당 년월, 아이콘 */
+
+header .current-date {
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+
+header .icons span {
+  background: #f2f2f2;
+  height: 38px;
+  width: 38px;
+  line-height: 38px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+header .icons :hover {
+  background: #878787;
+}
+
+/* 요일, 날짜 */
+
+.calendar {
+  padding: 20px;
+}
+
+.calendar ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.calendar ul li {
+  width: calc(100% / 7);
+  padding: 5px;
+}
+
+.calendar .days {
+  margin-bottom: 20px;
+}
+
+.calendar .days li {
+  position: relative;
+  margin-top: 5vh;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.calendar .days li::before {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: "";
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.calendar .days li:hover::before {
+  background-color: #f2f2f2;
+}
+
+.days .inactive {
+  color: #aaa;
+}
+
+.days .active {
+  color: #fff;
+}
+
+.days li.active::before {
+  background: #3962a9;
+}
+
+.days li.active:hover::before {
+  background: #3962a9;
+}
