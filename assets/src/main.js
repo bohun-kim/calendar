@@ -17,6 +17,9 @@ const renderCalendar = () => {
   let lastDateOfLastMonth = new Date(currYear, currMonth, 0).getDate();
   let liTag = "";
 
+  console.log(lastDateOfMonth);
+  console.log(lastDayOfMonth);
+
   // 현재달의 1일의 요일에 해당하는 정수 리턴값을 i 에 대입해주고, i (현재달의 1일의 요일을 정수로 반환한 값) 값
   // 의 수만큼 이전달의 마자막 날의 값에서 i 값을 반복해서 빼주면 현재달에 보여지는 전달 일(day)이 나온다.
   for (let i = firstDayOfMonth; i > 0; i--) {
@@ -50,6 +53,9 @@ prevNextIcon.forEach((icon) => {
   icon.addEventListener("click", () => {
     currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
 
+    // currMonth 는 0~11 이므로 11 이라는 값이 12월달을 뜻한다
+    // 그래서 currMonth 가 12가 되면 13월달인데 13월달은 없으므로
+    // 그 다음해 1월달이 된다.
     if (currMonth < 0 || currMonth > 11) {
       date = new Date(currYear, currMonth);
       currYear = date.getFullYear();
